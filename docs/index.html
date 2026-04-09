@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Student Scanner</title>
+    <meta name="description" content="AI-powered student face recognition scanner for classroom attendance." />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/Ar-Human-Scanner/assets/index-CqZVedda.js"></script>
+    <link rel="stylesheet" crossorigin href="/Ar-Human-Scanner/assets/index-BSpxxrZh.css">
+  </head>
+  <body>
+    <!-- Full-screen camera layer -->
+    <div id="scanner-root">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+
+      <!-- AR HUD overlays -->
+      <div class="hud-corner top-left"></div>
+      <div class="hud-corner top-right"></div>
+      <div class="hud-corner bottom-left"></div>
+      <div class="hud-corner bottom-right"></div>
+
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="app-title">
+          <span class="title-tag">SYS://</span>
+          <span class="title-main">AI SCANNER</span>
+        </div>
+        <div class="scan-status" id="scan-status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">SCANNING...</span>
+        </div>
+      </div>
+
+      <!-- Loading Overlay -->
+      <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-inner">
+          <div class="loading-lines">
+            <span></span><span></span><span></span>
+          </div>
+          <p id="loading-text">LOADING AI MODELS</p>
+          <div class="loading-bar-track">
+            <div class="loading-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AR Target Reticle (shown when scanning, hides on lock) -->
+      <div class="reticle" id="reticle">
+        <div class="reticle-ring"></div>
+        <div class="reticle-cross">+</div>
+      </div>
+
+      <!-- Student Info Panel (slides up like AR tab) -->
+      <div id="info-panel" class="info-panel hidden">
+        <div class="panel-handle"></div>
+        <button id="close-btn" class="close-btn" aria-label="Close panel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+          <span>CLOSE & NEXT</span>
+        </button>
+        <div class="panel-content" id="panel-content">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

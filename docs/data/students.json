@@ -1,0 +1,524 @@
+[
+  {
+    "rollNo": "1",
+    "name": "Arun Kumar",
+    "department": "Computer Science",
+    "year": "3rd Year",
+    "address": "123 Main St, Tech City",
+    "phone": "9876543210",
+    "cgpa": "8.5"
+  },
+  {
+    "rollNo": "513523205039",
+    "name": "Sanjai",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "Vellore",
+    "phone": "6385411206",
+    "cgpa": "8.39"
+  },
+  {
+    "rollNo": "513523205040",
+    "name": "Sanjeeu V",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205041",
+    "name": "Santhosh R",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205042",
+    "name": "Santhosh S",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205043",
+    "name": "Saranya B",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205044",
+    "name": "Shalini K",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205045",
+    "name": "Shyam V",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205046",
+    "name": "Sobiya K",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205047",
+    "name": "Sree Raksha",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205048",
+    "name": "Sudeep Raj I",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205049",
+    "name": "Susinthiran A",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205050",
+    "name": "Sweka",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205051",
+    "name": "Theja Shree",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205052",
+    "name": "Thrisha",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205053",
+    "name": "Thiyagarajan S",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205056",
+    "name": "Venkatesh R",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205057",
+    "name": "Vinayagaram",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205058",
+    "name": "Visha Raj V",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205059",
+    "name": "Yukesh M",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205060",
+    "name": "Yuvanesh K S",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205301",
+    "name": "Tharun M K",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205701",
+    "name": "Gopika R",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205001",
+    "name": "Ajay E",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205002",
+    "name": "Ajith M",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205003",
+    "name": "Bhuvaneswari",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205005",
+    "name": "Deepika R",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205006",
+    "name": "Deepika R R",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205007",
+    "name": "Dhanush A",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205008",
+    "name": "Dinesh G",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205010",
+    "name": "Divya Shree V",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205011",
+    "name": "Harish Babu",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205012",
+    "name": "Hemanth",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205013",
+    "name": "Janani M",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205014",
+    "name": "Janani V",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205015",
+    "name": "Jeevanantham",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205016",
+    "name": "Kanagalakshmi",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205017",
+    "name": "Kavin Kumar",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205018",
+    "name": "Keerthivasan",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205019",
+    "name": "Kishore",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205020",
+    "name": "Logith Kannan",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205021",
+    "name": "Lokeshramanan",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205022",
+    "name": "Madhan",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205023",
+    "name": "Madhumitha",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205024",
+    "name": "Manigandan R",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205025",
+    "name": "Manoj Kumar S",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205026",
+    "name": "Meena S",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205027",
+    "name": "Mohan Kumar P",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205028",
+    "name": "Monika A",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205029",
+    "name": "Monika G",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205030",
+    "name": "Moshina Thabasu",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205031",
+    "name": "Naveen Kumar P",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205032",
+    "name": "Praveena",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205033",
+    "name": "Raksha K",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205034",
+    "name": "Ranjana",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205035",
+    "name": "Roopashri",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205036",
+    "name": "Sachin B",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  },
+  {
+    "rollNo": "513523205037",
+    "name": "Sai Krishna",
+    "department": "Information Technology",
+    "year": "3rd Year",
+    "address": "",
+    "phone": "",
+    "cgpa": ""
+  }
+]
