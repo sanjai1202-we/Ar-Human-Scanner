@@ -29,13 +29,13 @@ async function init() {
   try {
     updateStatus('LOADING AI MODELS…', 'idle');
     await Promise.all([
-      faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
-      faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-      faceapi.nets.faceRecognitionNet.loadFromUri('/models')
+      faceapi.nets.ssdMobilenetv1.loadFromUri('/Ar-Human-Scanner/models'),
+      faceapi.nets.faceLandmark68Net.loadFromUri('/Ar-Human-Scanner/models'),
+      faceapi.nets.faceRecognitionNet.loadFromUri('/Ar-Human-Scanner/models')
     ]);
 
     updateStatus('LOADING STUDENT DATABASE…', 'idle');
-    const res = await fetch('/data/students.json');
+    const res = await fetch('/Ar-Human-Scanner/data/students.json');
     studentsData = await res.json();
 
     updateStatus(`ENCODING ${studentsData.length} FACES (WITH AUGMENTATION)…`, 'idle');
@@ -64,7 +64,7 @@ async function buildDescriptors() {
     let usedUrl = '';
     for (const ext of ['.jpg', '.jpeg', '.png']) {
       try {
-        const url = `/images/${s.rollNo}${ext}`;
+        const url = `/Ar-Human-Scanner/images/${s.rollNo}${ext}`;
         srcImg = await faceapi.fetchImage(url);
         usedUrl = url;
         break;
@@ -148,7 +148,7 @@ function cropCenter(img, scale) {
 // Helper: try to resolve the real image URL for a student (used in the info card)
 async function resolveImageUrl(rollNo) {
   for (const ext of ['.jpg', '.jpeg', '.png']) {
-    const url = `/images/${rollNo}${ext}`;
+    const url = `/Ar-Human-Scanner/images/${rollNo}${ext}`;
     try {
       const res = await fetch(url, { method: 'HEAD' });
       if (res.ok) return url;
