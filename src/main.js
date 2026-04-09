@@ -19,6 +19,7 @@ const CONFIRM_FRAMES    = 2;      // consecutive hits before showing name label
 
 // ─── State ───────────────────────────────────────────────────────────────────
 let studentsData   = [];
+let imageMap       = {};
 let faceMatcher    = null;
 let hitCounters    = {};           // rollNo → consecutive hit count
 let currentFaces   = [];          // [{rollNo, box, student}] for click handling
@@ -35,10 +36,14 @@ async function init() {
     ]);
 
     updateStatus('LOADING STUDENT DATABASE…', 'idle');
-    const res = await fetch('/Ar-Human-Scanner/data/students.json');
+    const [res, imgRes] = await Promise.all([
+      fetch('/Ar-Human-Scanner/data/students.json'),
+      fetch('/Ar-Human-Scanner/data/images.json')
+    ]);
     studentsData = await res.json();
+    imageMap = await imgRes.json();
 
-    updateStatus(`ENCODING ${studentsData.length} FACES…`, 'idle');
+    updateStatus(`ENCODING FACES…`, 'idle');
     const labeled = await buildDescriptors();
 
     if (labeled.length > 0) {
@@ -59,19 +64,16 @@ async function init() {
 async function buildDescriptors() {
   const promises = studentsData.map(async (s) => {
     // ── 1. Find the image ──────────────────────────────────────────
-    let srcImg = null;
-    let usedUrl = '';
-    for (const ext of ['.jpg', '.jpeg', '.png']) {
-      try {
-        const url = `/Ar-Human-Scanner/images/${s.rollNo}${ext}`;
-        srcImg = await faceapi.fetchImage(url);
-        usedUrl = url;
-        break;
-      } catch { /* try next extension */ }
+    const fileName = imageMap[String(s.rollNo)];
+    if (!fileName) {
+      return null;
     }
-    
-    if (!srcImg) {
-      console.warn(`❌ No image for Roll ${s.rollNo}`);
+
+    let srcImg = null;
+    let usedUrl = `/Ar-Human-Scanner/images/${fileName}`;
+    try {
+      srcImg = await faceapi.fetchImage(usedUrl);
+    } catch { 
       return null;
     }
 
@@ -137,12 +139,9 @@ function cropCenter(img, scale) {
 
 // Helper: try to resolve the real image URL for a student (used in the info card)
 async function resolveImageUrl(rollNo) {
-  for (const ext of ['.jpg', '.jpeg', '.png']) {
-    const url = `/Ar-Human-Scanner/images/${rollNo}${ext}`;
-    try {
-      const res = await fetch(url, { method: 'HEAD' });
-      if (res.ok) return url;
-    } catch { /* skip */ }
+  const fileName = imageMap[String(rollNo)];
+  if (fileName) {
+    return `/Ar-Human-Scanner/images/${fileName}`;
   }
   return null;
 }

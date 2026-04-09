@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node generate-images-map.cjs && vite",
+    "build": "node generate-images-map.cjs && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
