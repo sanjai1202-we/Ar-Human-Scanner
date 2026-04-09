@@ -38,7 +38,7 @@ async function init() {
     const res = await fetch('/Ar-Human-Scanner/data/students.json');
     studentsData = await res.json();
 
-    updateStatus(`ENCODING ${studentsData.length} FACES (WITH AUGMENTATION)…`, 'idle');
+    updateStatus(`ENCODING ${studentsData.length} FACES…`, 'idle');
     const labeled = await buildDescriptors();
 
     if (labeled.length > 0) {
@@ -57,8 +57,7 @@ async function init() {
 }
 
 async function buildDescriptors() {
-  const labeled = [];
-  for (const s of studentsData) {
+  const promises = studentsData.map(async (s) => {
     // ── 1. Find the image ──────────────────────────────────────────
     let srcImg = null;
     let usedUrl = '';
@@ -70,42 +69,33 @@ async function buildDescriptors() {
         break;
       } catch { /* try next extension */ }
     }
+    
     if (!srcImg) {
       console.warn(`❌ No image for Roll ${s.rollNo}`);
-      continue;
+      return null;
     }
 
-    // ── 2. Build augmented versions ───────────────────────────────
-    // Each variant helps the model handle live-camera variations
-    const variants = [
-      srcImg,                              // original
-      flipH(srcImg),                       // mirror (helps with selfie cams)
-      brighten(srcImg, 1.35),              // over-exposed lighting
-      brighten(srcImg, 0.65),              // under-exposed / dim room
-      cropCenter(srcImg, 0.85),            // slight zoom-in crop
-    ];
-
-    // ── 3. Extract descriptors ────────────────────────────────────
+    // ── 2. Build descriptors ────────────────────────────────────
     const descriptors = [];
-    for (const variant of variants) {
-      try {
-        const det = await faceapi
-          .detectSingleFace(variant)
-          .withFaceLandmarks()
-          .withFaceDescriptor();
-        if (det) descriptors.push(det.descriptor);
-      } catch { /* some variants may fail — that's fine */ }
-    }
+    try {
+      const det = await faceapi
+        .detectSingleFace(srcImg)
+        .withFaceLandmarks()
+        .withFaceDescriptor();
+      if (det) descriptors.push(det.descriptor);
+    } catch { /* may fail */ }
 
     if (descriptors.length === 0) {
       console.warn(`⚠️ No face detected in ${usedUrl}`);
-      continue;
+      return null;
     }
 
-    labeled.push(new faceapi.LabeledFaceDescriptors(String(s.rollNo), descriptors));
     console.log(`✅ ${s.name} — ${descriptors.length} descriptors (${usedUrl})`);
-  }
-  return labeled;
+    return new faceapi.LabeledFaceDescriptors(String(s.rollNo), descriptors);
+  });
+
+  const results = await Promise.all(promises);
+  return results.filter(res => res !== null);
 }
 
 // ── Image Augmentation Helpers ─────────────────────────────────────────────
