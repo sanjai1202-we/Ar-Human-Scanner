@@ -6,8 +6,8 @@
     <title>AI Student Scanner</title>
     <meta name="description" content="AI-powered student face recognition scanner for classroom attendance." />
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/Ar-Human-Scanner/assets/index-UaGXRjF_.js"></script>
-    <link rel="stylesheet" crossorigin href="/Ar-Human-Scanner/assets/index-BSpxxrZh.css">
+    <script type="module" crossorigin src="/Ar-Human-Scanner/assets/index-CCwGJxDD.js"></script>
+    <link rel="stylesheet" crossorigin href="/Ar-Human-Scanner/assets/index-DwX1-vMP.css">
   </head>
   <body>
     <!-- Full-screen camera layer -->
@@ -36,36 +36,24 @@
       <!-- Loading Overlay -->
       <div id="loading-overlay" class="loading-overlay">
         <div class="loading-inner">
-          <div class="loading-lines">
+          <div class="load-bars">
             <span></span><span></span><span></span>
           </div>
           <p id="loading-text">LOADING AI MODELS</p>
-          <div class="loading-bar-track">
-            <div class="loading-bar-fill"></div>
+          <div class="load-track">
+            <div class="load-fill"></div>
           </div>
         </div>
       </div>
 
-      <!-- AR Target Reticle (shown when scanning, hides on lock) -->
+      <!-- AR Target Reticle -->
       <div class="reticle" id="reticle">
         <div class="reticle-ring"></div>
         <div class="reticle-cross">+</div>
       </div>
 
-      <!-- Student Info Panel (slides up like AR tab) -->
-      <div id="info-panel" class="info-panel hidden">
-        <div class="panel-handle"></div>
-        <button id="close-btn" class="close-btn" aria-label="Close panel">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-          <span>CLOSE & NEXT</span>
-        </button>
-        <div class="panel-content" id="panel-content">
-          <!-- Filled by JS -->
-        </div>
-      </div>
+      <!-- Floating popups & modals are injected here by JS -->
     </div>
-
+
   </body>
 </html>

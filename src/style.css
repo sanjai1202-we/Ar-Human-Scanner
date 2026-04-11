@@ -38,7 +38,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font
   inset: 0;
   width: 100%; height: 100%;
   z-index: 2;
-  cursor: pointer;  /* clickable name chips */
+  pointer-events: none;
 }
 
 /* ── HUD Corners ─────────────────────────────────────────────── */
@@ -121,21 +121,6 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Instruction hint */
-.tap-hint {
-  position: absolute;
-  bottom: calc(var(--panel-height, 0px) + 24px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.5);
-  z-index: 5;
-  pointer-events: none;
-  animation: blink 2s ease-in-out infinite;
-}
-
 /* ── Loading Overlay ─────────────────────────────────────────── */
 .loading-overlay {
   position: absolute; inset: 0;
@@ -175,51 +160,143 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font
   animation: loadfill 3s ease-in-out infinite;
 }
 
-/* ── Info Panel ──────────────────────────────────────────────── */
-.info-panel {
+/* ══════════════════════════════════════════════════════════════
+   FLOATING FACE POPUP
+   A small card that appears above each detected face
+══════════════════════════════════════════════════════════════ */
+.face-popup {
+  position: fixed;
+  z-index: 30;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(16px) saturate(0.5);
+  -webkit-backdrop-filter: blur(16px) saturate(0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: all;
+
+  /* Entry animation */
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16,1,0.3,1);
+
+  /* Subtle glow */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+.face-popup.popup-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Caret pointer below the popup */
+.face-popup::after {
+  content: '';
   position: absolute;
-  bottom: 0; left:0; right:0;
-  z-index: 20;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(255,255,255,0.12);
+}
+
+.popup-name {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.popup-details-btn {
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.popup-details-btn:hover  { background: #e0e0e0; box-shadow: 0 0 16px rgba(255,255,255,0.25); transform: scale(1.03); }
+.popup-details-btn:active { transform: scale(0.97); }
+
+/* ══════════════════════════════════════════════════════════════
+   DETAIL MODAL
+   Full card overlay when "Show Details" is tapped
+══════════════════════════════════════════════════════════════ */
+.detail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.detail-modal.modal-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.detail-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.detail-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
   background: var(--panel-bg);
   backdrop-filter: blur(28px) saturate(0.4);
   -webkit-backdrop-filter: blur(28px) saturate(0.4);
-  border-top: 1px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 20px 20px 0 0;
-  padding: 0 24px 32px;
-  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.3s;
-  max-height: 70vh;
+  padding: 56px 24px 36px;
+  max-height: 82vh;
   overflow-y: auto;
-}
-.info-panel.hidden  { transform:translateY(105%); opacity:0; pointer-events:none; }
-.info-panel.visible { transform:translateY(0);    opacity:1; pointer-events:all; }
 
-/* Desktop: right side drawer */
-@media(min-width: 900px) {
-  .info-panel {
-    left:auto; right:0; top:0; bottom:0;
-    border-radius: 16px 0 0 16px;
-    border-top: none;
-    border-left: 1px solid var(--border);
-    width: 360px;
-    max-height: 100vh;
-    padding: 56px 24px 32px;
+  transform: translateY(40px);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.detail-modal.modal-visible .detail-card {
+  transform: translateY(0);
+}
+
+/* Desktop: centered card */
+@media (min-width: 600px) {
+  .detail-modal {
+    align-items: center;
   }
-  .info-panel.hidden  { transform:translateX(105%); opacity:0; }
-  .info-panel.visible { transform:translateX(0);    opacity:1; }
-  .panel-handle { display:none; }
+  .detail-card {
+    border-radius: 20px;
+    max-height: 90vh;
+  }
 }
 
-.panel-handle {
-  width: 44px; height:4px;
-  background: var(--dim);
-  border-radius:2px;
-  margin: 14px auto 0;
-}
-
-/* Close Button */
+/* ── Close Button ─────────────────────────────────────────────── */
 .close-btn {
-  position:absolute; top:20px; right:20px;
-  display:flex; align-items:center; gap:8px;
+  position: absolute; top: 16px; right: 16px;
+  display: flex; align-items: center; gap: 8px;
   background: var(--mid);
   color: var(--white);
   border: 1px solid var(--border);
@@ -230,23 +307,20 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font
   font-size: 0.68rem;
   letter-spacing: 1.5px;
   transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  z-index: 2;
 }
 .close-btn:hover  { background: var(--dim); box-shadow: 0 0 16px rgba(255,255,255,0.12); transform:scale(1.02); }
 .close-btn:active { transform: scale(0.97); }
 .close-btn svg    { flex-shrink:0; }
 
 /* ── Student Card ────────────────────────────────────────────── */
-.panel-content { margin-top: 22px; }
-
 .card-header {
   display:flex; align-items:center; gap:16px;
   padding-bottom:18px;
   border-bottom: 1px solid var(--border);
 }
 
-.photo-wrap {
-  flex-shrink:0;
-}
+.photo-wrap { flex-shrink:0; }
 .id-photo {
   width: 72px; height: 72px;
   border-radius: 50%;

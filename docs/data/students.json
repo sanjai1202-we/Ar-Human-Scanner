@@ -1,10 +1,10 @@
 [
   {
-    "rollNo": "1",
-    "name": "Arun Kumar",
-    "department": "Computer Science",
+    "rollNo": "513523205038",
+    "name": "Sandhiya",
+    "department": "Information Technology",
     "year": "3rd Year",
-    "address": "123 Main St, Tech City",
+    "address": "Pallikonda",
     "phone": "9876543210",
     "cgpa": "8.5"
   },
@@ -184,9 +184,9 @@
     "name": "Yuvanesh K S",
     "department": "Information Technology",
     "year": "3rd Year",
-    "address": "",
-    "phone": "",
-    "cgpa": ""
+    "address": "Gudiyatham",
+    "phone": "7305938284",
+    "cgpa": "8"
   },
   {
     "rollNo": "513523205301",
@@ -373,9 +373,9 @@
     "name": "Lokeshramanan",
     "department": "Information Technology",
     "year": "3rd Year",
-    "address": "",
-    "phone": "",
-    "cgpa": ""
+    "address": "Walajapet",
+    "phone": "9047568257",
+    "cgpa": "0"
   },
   {
     "rollNo": "513523205022",
@@ -400,9 +400,9 @@
     "name": "Manigandan R",
     "department": "Information Technology",
     "year": "3rd Year",
-    "address": "",
-    "phone": "",
-    "cgpa": ""
+    "address": "Paikonda  ",
+    "phone": "8870359724",
+    "cgpa": "8.88"
   },
   {
     "rollNo": "513523205025",
@@ -463,9 +463,9 @@
     "name": "Naveen Kumar P",
     "department": "Information Technology",
     "year": "3rd Year",
-    "address": "",
-    "phone": "",
-    "cgpa": ""
+    "address": "Vellore",
+    "phone": "9445527418",
+    "cgpa": "0"
   },
   {
     "rollNo": "513523205032",
